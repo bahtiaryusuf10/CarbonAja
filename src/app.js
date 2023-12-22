@@ -15,6 +15,7 @@ app.use(cors());
 app.use(router);
 
 const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+const host = process.env.HOST;
+app.listen(port, host, () => {
+  console.log(`Server running on http://${host}:${port}`);
 });
