@@ -20,7 +20,7 @@ const ServiceController = {
         },
       };
 
-      const flaskResponse = await axios.post('http://127.0.0.1:5000/careCarb/food-predict', formData, config);
+      const flaskResponse = await axios.post('https://backend-for-ml-grluz5ersa-et.a.run.app/careCarb/food-predict', formData, config);
 
       const upload = await fileHelper.uploadFile(req.file, 'foods');
 
@@ -62,7 +62,7 @@ const ServiceController = {
         },
       };
 
-      const flaskResponse = await axios.post('http://127.0.0.1:5000/careCarb/transport-predict', config);
+      const flaskResponse = await axios.post('https://backend-for-ml-grluz5ersa-et.a.run.app/careCarb/transport-predict', config);
 
       // const predictions = flaskResponse.data.Predictions;
       // const totalCarbonProduced = parseFloat(flaskResponse.data['Total Carbon Produced']);
