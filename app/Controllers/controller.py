@@ -77,17 +77,17 @@ def predict_image(model, image_data, threshold=0.5):
     return ingredients_list, total_carbon_produced
 
 # Function to calculate haversine distance
-# def haversine_distance(lat1, lon1, lat2, lon2):
-#     lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
-#     dlat = lat2 - lat1
-#     dlon = lon2 - lon1
-#     a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
-#     c = 2 * atan2(sqrt(a), sqrt(1 - a))
-#     radius = 6371000.0  # Radius of the Earth in meters
-#     distance = radius * c
-#     return distance
+def haversine_distance(lat1, lon1, lat2, lon2):
+    lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+    radius = 6371000.0  # Radius of the Earth in meters
+    distance = radius * c
+    return distance
 
-# def track_location(input_coordinates):
+def track_location(input_coordinates):
     # Initialize start_time outside the loop
     start_time = time.time()
 
