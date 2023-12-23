@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(router);
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 const host = process.env.HOST;
 app.listen(port, host, () => {
   console.log(`Server running on http://${host}:${port}`);
