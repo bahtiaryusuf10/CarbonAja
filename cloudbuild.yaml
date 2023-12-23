@@ -23,7 +23,7 @@ steps:
           --region asia-southeast2 \
           --platform managed \
           --allow-unauthenticated
-          --port=8000
+          --port 8000
 
 options:
   logging: CLOUD_LOGGING_ONLY
