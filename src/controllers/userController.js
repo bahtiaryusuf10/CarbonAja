@@ -78,26 +78,26 @@ const UserController = {
         });
       }
 
-      let fileUrl = null;
+      // let fileUrl = null;
 
-      if (req.file) {
-        const upload = await fileHelper.uploadFile(req.file, 'users');
+      // if (req.file) {
+      //   const upload = await fileHelper.uploadFile(req.file, 'users');
 
-        if (upload.status === 'failed') {
-          return res.status(400).json({
-            status: 'failed',
-            message: 'File upload failed',
-          });
-        }
+      //   if (upload.status === 'failed') {
+      //     return res.status(400).json({
+      //       status: 'failed',
+      //       message: 'File upload failed',
+      //     });
+      //   }
 
-        fileUrl = upload.fileUrl;
-      }
+      //   fileUrl = upload.fileUrl;
+      // }
 
       const userData = userValidation(req.body, 'register');
       const newUser = await Users.create({
         firstName: userData.firstName,
         lastName: userData.lastName,
-        profilePicture: fileUrl,
+        profilePicture: null,
         email: userData.email,
         password: await bcrypt.hash(userData.password, 10),
         accessToken: userData.accessToken,

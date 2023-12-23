@@ -8,7 +8,6 @@ const env = process.env.NODE_ENV;
 const pathConfig = require('../config/database');
 
 const config = pathConfig[env];
-
 const db = {};
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config);

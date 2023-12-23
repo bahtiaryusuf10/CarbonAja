@@ -1,4 +1,7 @@
 const express = require('express');
+const multer = require('multer');
+
+const reqFormData = multer().none();
 
 const router = express.Router();
 const userController = require('../controllers/userController');
@@ -11,8 +14,8 @@ const serviceController = require('../controllers/serviceController');
 const userAuthentication = require('../middleware/userAuthentication');
 
 // Routes for user data
-router.post('/users/register', userController.registerUser);
-router.post('/users/login', userController.loginUser);
+router.post('/users/register', reqFormData, userController.registerUser);
+router.post('/users/login', reqFormData, userController.loginUser);
 router.get('/users', userAuthentication, userController.getAllUsers);
 router.get('/users/detail', userAuthentication, userController.getUserDetail);
 router.get('/users/refresh-token', handleRefreshToken);
@@ -27,11 +30,11 @@ router.get('/food-consumptions/detail/:id', userAuthentication, foodConsumptionC
 router.delete('/food-consumptions/delete/:id', userAuthentication, foodConsumptionController.deleteFoodConsumption);
 
 // Routes for vehicle data
-router.post('/vehicles/add', userAuthentication, vehicleController.addVehicle);
+router.post('/vehicles/add', reqFormData, userAuthentication, vehicleController.addVehicle);
 router.delete('/vehicles/:id', userAuthentication, vehicleController.deleteVehicle);
 
 // Routes for travel data
-router.post('/travels/add', userAuthentication, travelController.addTravel);
+router.post('/travels/add', reqFormData, userAuthentication, travelController.addTravel);
 router.get('/travels/:id', userAuthentication, travelController.getTravelDetail);
 router.delete('/travels/:id', userAuthentication, travelController.deleteTravel);
 
