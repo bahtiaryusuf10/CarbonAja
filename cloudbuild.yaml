@@ -1,4 +1,12 @@
 steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud secrets versions access latest --secret=Credentials-Bucket --project=careCarb --format='json' | jq -r '.payload.data' | base64 --decode > /workspace/carecarb-2ffde3f90c43.json
+        gcloud secrets versions access latest --secret=User-defined --project=careCarb --format='json' | jq -r '.payload.data' | base64 --decode > /workspace/.env
+
   - name: "gcr.io/cloud-builders/docker"
     args:
       - "build"
