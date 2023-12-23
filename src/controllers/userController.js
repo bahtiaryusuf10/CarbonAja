@@ -67,7 +67,6 @@ const UserController = {
 
   async registerUser(req, res) {
     try {
-      await uploadHelper(req, res);
       const { email } = req.body;
       const user = await Users.findOne({ where: { email } });
 
@@ -77,21 +76,6 @@ const UserController = {
           message: 'Email is already registered',
         });
       }
-
-      // let fileUrl = null;
-
-      // if (req.file) {
-      //   const upload = await fileHelper.uploadFile(req.file, 'users');
-
-      //   if (upload.status === 'failed') {
-      //     return res.status(400).json({
-      //       status: 'failed',
-      //       message: 'File upload failed',
-      //     });
-      //   }
-
-      //   fileUrl = upload.fileUrl;
-      // }
 
       const userData = userValidation(req.body, 'register');
       const newUser = await Users.create({
