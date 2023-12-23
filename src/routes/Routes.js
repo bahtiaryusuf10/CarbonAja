@@ -21,7 +21,7 @@ router.get('/users/detail', userAuthentication, userController.getUserDetail);
 router.get('/users/refresh-token', handleRefreshToken);
 router.get('/users/logout', userController.logoutUser);
 router.put('/users/update', userAuthentication, userController.updateUser);
-router.put('/users/change-password', userAuthentication, userController.changePassword);
+router.put('/users/change-password', reqFormData, userAuthentication, userController.changePassword);
 router.delete('/users/delete/:id', userAuthentication, userController.deleteUser);
 
 // Routes for food data

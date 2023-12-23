@@ -29,7 +29,7 @@ steps:
           --region asia-southeast2 \
           --platform managed \
           --allow-unauthenticated \
-          --port=5000
+          --port=8080
 
 options:
   logging: CLOUD_LOGGING_ONLY
